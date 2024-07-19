@@ -1,0 +1,41 @@
+.mission{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msn {
+  display: flex;
+  /* justify-content: flex-end; */
+  /* scale: 0.3; */
+  height: 700px;
+}
+
+
+@media only screen and (max-width: 850px)  {
+  .slog h1{
+    font-size: 20px;
+    color: red;
+  }
+}
+@media only screen and (max-width: 515px)  {
+  .mission{
+    max-width: 100%;
+  }
+  .slog h1{
+    font-size: 15px;
+    color: red;
+  }
+}
+@media only screen and (max-width: 380px)   {
+  .slog h1{
+    font-size: 12px;
+    color: red;
+    /* max-width: 50%; */
+    text-align: center;
+  }
+  .msn{
+    scale: 0.8;
+  }
+}

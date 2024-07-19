@@ -1,0 +1,50 @@
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: aquamarine; */
+  padding: 150px;
+}
+.logo h4{
+  margin-bottom: 40px;
+}
+.title{
+  margin-bottom: 40px;
+}
+.copyright p{
+  text-align: center;
+  margin-top: -100px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 750px){
+  .footer{
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+  .tit h4{
+    font-size: 12px;
+  }
+  .res h6{
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 550px){
+  .footer{
+    display: flex;
+    flex-direction: column;
+  }
+  .tit h4{
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .footer{
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+  }
+}

@@ -1,0 +1,36 @@
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, #e8ec07, #78b029, #1553b8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.progress {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  background-color: #c6de0e;
+}
+
+.progress > div {
+  flex: 1;
+  text-align: center;
+}
+
+@media only screen and (max-width: 750px) {
+  .slogan{
+    font-size: 15px;
+    text-align: center;
+  }
+  .prog{
+    font-size: 12px;
+  }
+}

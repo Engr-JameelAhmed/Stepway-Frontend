@@ -1,0 +1,40 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.content {
+  flex: 1;
+}
+
+.animation {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  scale: 0.7;
+  margin-top: -200px;
+}
+
+
+@media only screen and (max-width: 750px) {
+  .hero{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .content, .animation {
+
+    flex: none;
+    width: 100%; /* Make the content and animation take full width */
+    display: flex;
+    justify-content: center; /* Center the content inside the full-width containers */
+    margin-top: 20px;
+  }
+
+  .animation {
+    justify-content: center; /* Center the animation in its container */
+  }
+
+}

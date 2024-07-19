@@ -1,0 +1,41 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(54, 47, 47);
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+}
+.form{
+  padding: 50px;
+  margin: 30px;
+}
+.inp{
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.label{
+  color: white;
+  margin-bottom: 10px;
+}
+#btn{
+  background-color: rgb(25, 125, 225);
+  height: 30px;}
+.last-section p {
+  color: white;
+}
+header{
+  color: white;
+}
+.last-section{
+
+  display: flex;
+  justify-content: space-between;
+}
+.frg{
+  margin-left: 165px;
+}

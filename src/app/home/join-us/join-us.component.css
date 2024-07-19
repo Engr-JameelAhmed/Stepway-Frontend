@@ -1,0 +1,41 @@
+.join{
+  background-color: #f9f8fd;
+  /* margin-top: 150px; */
+}
+.tag h1{
+  padding-top: 120px;
+  text-align: center;
+  margin-bottom: -100px;
+
+}
+.sites{
+  display: flex;
+  justify-content: center;
+}
+#yt-site{
+  scale: 0.5;
+}
+
+@media only screen and (max-width: 400px) {
+  .tag h1{
+    font-size: 25px;
+    color: red;
+    margin-bottom: 5px;
+  }
+  .sites{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .animation-container {
+    margin: 0.1px 0;
+  }
+  #fb-site, #link-site {
+    scale: 0.9;
+  }
+  #yt-site {
+    scale: 0.5;
+  }
+
+}
