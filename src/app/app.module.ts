@@ -19,6 +19,17 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CoursesComponent } from './courses/courses.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
+import { CourseService } from './services/course.service';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 
 
 const routes: Routes =  [
@@ -26,9 +37,12 @@ const routes: Routes =  [
   // { path: '', redirectTo: 'home', pathMatch: 'full'},  // this or below one are both techniques to redirect to home page
   { path: '', component: HomeComponent },
   { path: 'home', component:  HomeComponent},
-  { path: 'login', component:  LoginComponent},
   { path: 'courses', component:  CoursesComponent},
+  { path: 'login', component:  LoginComponent},
   { path: 'signup', component:  SignUpComponent},
+  { path: 'student-dashboard', component:  StudentDashboardComponent},
+  { path: 'admin-dashboard', component:  AdminDashboardComponent},
+  { path: 'teacher-dashboard', component:  TeacherDashboardComponent},
   { path: '**', component: NotFoundComponent }
 
 ]
@@ -48,7 +62,8 @@ const routes: Routes =  [
     LoginComponent,
     HomeComponent,
     CoursesComponent,
-    SignUpComponent
+    SignUpComponent,
+    StudentDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,9 +72,15 @@ const routes: Routes =  [
     NgbPaginationModule,
     NgbAlertModule,
     FormsModule,
+    CardModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ MessageService, CourseService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

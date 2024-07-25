@@ -1,41 +1,109 @@
-.container{
+form{
   display: flex;
-  flex-direction: column;
-  background-color: rgb(54, 47, 47);
   justify-content: center;
   align-items: center;
-  width: 600px;
-  height: 600px;
-}
-.form{
-  padding: 50px;
-  margin: 30px;
-}
-.inp{
-  width: 400px;
-  height: 40px;
-  border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 10px;
-}
-.label{
-  color: white;
-  margin-bottom: 10px;
-}
-#btn{
-  background-color: rgb(25, 125, 225);
-  height: 30px;}
-.last-section p {
-  color: white;
-}
-header{
-  color: white;
-}
-.last-section{
 
-  display: flex;
-  justify-content: space-between;
 }
-.frg{
-  margin-left: 165px;
+p-card{
+  width: 360px;
+}
+
+#login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+#login-animations {
+  width: 40%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+
+}
+
+.form-container {
+  width: 30%;
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#login-animations canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+@media only screen and (max-width: 1000px){
+  .form-container{
+    width: 50%;
+    z-index: 1;
+    transform: translateY(-60%);
+  }
+  #login-animations {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-20%);
+    z-index: 2;
+
+  }
+}
+@media only screen and (max-width: 650px){
+  .form-container{
+    width: 70%;
+    z-index: 1;
+    top: 40%;
+    right: 10%;
+    transform: translateY(-50%);
+  }
+  #login-animations {
+    width: 40%;
+    height: 40%;
+    /* top: 50%; */
+    transform: translateY(-10%);
+    z-index: 2;
+  }
+}
+@media only screen and (max-width: 460px){
+  .form-container{
+    width: 80%;
+    z-index: 1;
+    top: 40%;
+    right: 5%;
+    transform: translateY(-50%);
+  }
+  #login-animations {
+    width: 50%;
+    height: 50%;
+    left: 34%;
+    /* right: 20%; */
+    top: 60%;
+    transform: translateY(-10%);
+    z-index: 2;
+  }
+
+}
+@media only screen and (max-width: 330px){
+
+  .form-container{
+    width: 100%;
+    z-index: 1;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-60%);
+  }
 }

@@ -7,7 +7,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end margin" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-end margin" id="navbarSupportedContent" *ngIf="loggedRole == 'visitor'">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="home">Home</a>
@@ -19,7 +19,58 @@
           <a class="nav-link" routerLink="login">Login</a>
         </li>
         <li class="nav-item signUp">
-          <a class="nav-link" routerLink="signup">SignUp</a>
+          <a class="nav-link" routerLink="signup" >SignUp</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end margin" id="navbarSupportedContent" *ngIf="loggedRole == 'ADMIN'">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="home">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="courses">Available Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login">Teachers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="signup">Students</a>
+        </li>
+        <li class="nav-item signUp">
+          <a class="nav-link" routerLink="signup" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end margin" id="navbarSupportedContent" *ngIf="loggedRole == 'TEACHER'">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="home">Teacher</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="courses">My Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login">My Classes</a>
+        </li>
+        <li class="nav-item signUp">
+          <a class="nav-link" routerLink="signup" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end margin" id="navbarSupportedContent" *ngIf="loggedRole == 'STUDENT'">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="home">Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="courses">Registered Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login">Progress</a>
+        </li>
+        <li class="nav-item signUp">
+          <a class="nav-link" routerLink="signup" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>
