@@ -7,7 +7,6 @@ import lottie from 'lottie-web';
 import { UserResponse } from '../Model/User';
 import { UtilService } from '../services/util.service';
 
-
 export interface loginData {
   email: string;
   password: string;
@@ -35,7 +34,8 @@ export class LoginComponent implements OnInit{
     constructor(
           private fb : FormBuilder,
           private router: Router,
-          private utilService: UtilService
+          private utilService: UtilService,
+          private messageService: MessageService
         ){
     }
     ngOnInit(){
@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit{
     get password(){
       return this.LoginForm.controls['password'];
     }
-
     //  implementing the jwt Authentication
     OnLogin(){
       this.loginObject.email = this.email.value;
@@ -76,7 +75,7 @@ export class LoginComponent implements OnInit{
             const roles = a.ROLES;
             this.CuurentloggedRole = roles[0];
             this.utilService.roleChanged.emit(this.CuurentloggedRole);
-
+            this.messageService.add({ severity: 'success', summary: 'Login Successful', detail: 'Welcome back!' });
             if (roles[0] === "ADMIN") {
               this.router.navigateByUrl('/admin-dashboard');
             } else if (roles.includes("STUDENT")) {
@@ -93,6 +92,7 @@ export class LoginComponent implements OnInit{
         },
         (error) => {
           console.error("Login failed. Please check your credentials.", error);
+          this.messageService.add({ severity: 'error', summary: 'Login Failed', detail: 'Please check your credentials and try again.' });
         }
       );
     }
@@ -103,6 +103,5 @@ export class LoginComponent implements OnInit{
       }).join(''));
       return JSON.parse(base64);
   };
-
 
 }

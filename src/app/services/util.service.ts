@@ -17,6 +17,10 @@ export class UtilService{
     }
     return null;
   }
+   // Method to check if the user is logged in
+   isLoggedIn(): boolean {
+    return !!localStorage.getItem('accessToken');
+  }
 
   parseJwt(token: string): any {
     const base64Url = token.split('.')[1];

@@ -30,6 +30,22 @@ import { CourseService } from './services/course.service';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { NoticeboardComponent } from './noticeboard/noticeboard.component';
+import { EnrolledCoursesComponent } from './student/enrolled-courses/enrolled-courses.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { AuthGaurdService } from './services/authGaurdService.service';
+import { StudentsComponent } from './student/students/students.component';
+import { TeachersComponent } from './teacher/teachers/teachers.component';
+import { HighchartsChartModule  } from 'highcharts-angular';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CreateNoticeComponent } from './admin/create-notice/create-notice.component';
+import { ChartModule } from 'primeng/chart';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 
 const routes: Routes =  [
@@ -40,9 +56,15 @@ const routes: Routes =  [
   { path: 'courses', component:  CoursesComponent},
   { path: 'login', component:  LoginComponent},
   { path: 'signup', component:  SignUpComponent},
-  { path: 'student-dashboard', component:  StudentDashboardComponent},
-  { path: 'admin-dashboard', component:  AdminDashboardComponent},
-  { path: 'teacher-dashboard', component:  TeacherDashboardComponent},
+  { path: 'student-dashboard', component:  StudentDashboardComponent, canActivate: [AuthGaurdService], data: { expectedRole: 'STUDENT' } },
+  { path: 'admin-dashboard', component:  AdminDashboardComponent , canActivate: [AuthGaurdService], data: { expectedRole: 'ADMIN' }},
+  { path: 'teacher-dashboard', component:  TeacherDashboardComponent, canActivate: [AuthGaurdService], data: { expectedRole: 'TEACHER' }},
+  { path: 'enrolled-courses', component:  EnrolledCoursesComponent,  canActivate: [AuthGaurdService], data: { expectedRole: 'STUDENT' }},
+  { path: 'teachers', component:  TeachersComponent, canActivate: [AuthGaurdService], data: { expectedRole: 'ADMIN' }},
+  { path: 'students', component:  StudentsComponent, canActivate: [AuthGaurdService], data: { expectedRole: 'ADMIN' }},
+  { path: 'notice-board', component:  NoticeboardComponent},
+  { path: 'blogs', component:  BlogsComponent},
+  { path: 'access-denied', component:  AccessDeniedComponent},
   { path: '**', component: NotFoundComponent }
 
 ]
@@ -64,20 +86,33 @@ const routes: Routes =  [
     CoursesComponent,
     SignUpComponent,
     StudentDashboardComponent,
+    NoticeboardComponent,
+    EnrolledCoursesComponent,
+    BlogsComponent,
+    AccessDeniedComponent,
+    CreateNoticeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
+    AvatarGroupModule,
     NgbPaginationModule,
     NgbAlertModule,
+    MatListModule,
+    MatDividerModule,
     FormsModule,
     CardModule,
+    AvatarModule,
     InputTextModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastModule,
     BrowserAnimationsModule,
+    HighchartsChartModule,
+    MatGridListModule,
+    MatSlideToggleModule,
+    ChartModule ,
     RouterModule.forRoot(routes)
   ],
   providers: [ MessageService, CourseService ],
